@@ -1,0 +1,81 @@
+### Dual Button with Gradient Effect
+
+![](dualButton.gif)
+
+```html
+<button class="btn">
+  <span class="btn__visible">Book now</span>
+  <span class="btn__invisible">Only 5 rooms left</span>
+</button>
+```
+
+```scss
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //defines what 1 rem is
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+//////
+
+.btn {
+  font-size: 1.5rem;
+  border: none;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  background-image: linear-gradient(to right, red, green);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  & > * { // select all children: visible and invisible
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all .2s;
+   }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    position: absolute;
+    padding: 2rem 0;
+    left: 0;
+    top: -100%;
+
+  }
+
+  &:hover {
+    background-image: linear-gradient(to left, red, green);
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+```
+
