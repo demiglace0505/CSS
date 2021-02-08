@@ -1,0 +1,37 @@
+/* reset using universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //defines what 1 rem is
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+// actual code below
+
+.heading-secondary {
+  //remove
+  margin-left: 50px;
+  margin-top: 50px;
+  //
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  display: inline-block;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(4deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
